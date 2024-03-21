@@ -1,9 +1,10 @@
 import { FiSearch } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
+import headerimg from "../../assets/images/headerimg.png";
 
 const Header = () => {
     return (
-        <div>
+        <header>
             <nav>
                 <div className="navbar bg-base-100">
                     <div className="navbar-start">
@@ -37,7 +38,24 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-        </div>
+
+            <section className="p-3">
+                <div className="hero">
+                    <img className="w-full" src={headerimg} alt="" />
+                    <div className="hero-content text-center text-neutral-content">
+                        <div>
+                            <h1 className="md:mb-8 text-3xl md:text-5xl lg:text-7xl font-bold text-white">Discover an exceptional cooking</h1>
+                            <h1 className="md:mb-10 text-3xl md:text-5xl lg:text-7xl font-bold text-white">class tailored for you!</h1>
+                            <p className="mb-2 text-white text-sm md:text-xl">Indulge in a culinary journey at our charming restaurant, where every dish is crafted with passion and precision. From mouthwatering appetizers to decadent desserts, our menu showcases a fusion of flavors from around the world.</p>
+                            <div className="md:mt-8 flex justify-center gap-5">
+                                <button className="btn rounded-3xl lg:text-lg px-8 text-gray-500 border-0 bg-[#35f3a3]">Explore Now</button>
+                                <button className="btn rounded-3xl lg:text-lg px-8 border-0">Our Feedback</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
     );
 };
 
