@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 
 const Carts = ({handleOrder}) => {
     return (
@@ -7,4 +9,8 @@ const Carts = ({handleOrder}) => {
     );
 };
 
+
+Carts.propTypes={
+    handleOrder: PropTypes.func.isRequired
+}
 export default Carts;

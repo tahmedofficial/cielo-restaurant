@@ -1,9 +1,29 @@
+import { useState } from "react";
 import Carts from "../Carts/Carts";
 import Preparing from "../Preparing/Preparing";
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
 const Main = () => {
+
+    const notify = () => toast("Already exist");
+    const [carts, setCarts] = useState([]);
+
+    const handleOrder = (cart) => {
+
+        const isExist = carts.find(item => item.recipe_id == cart.recipe_id);
+
+        if (!isExist) {
+            const newCarts = [...carts, cart];
+            setCarts(newCarts);
+        }
+        else {
+            notify();
+        }
+
+    }
+
 
     return (
         <main className="md:w-5/6 mx-auto px-3">
@@ -14,8 +34,9 @@ const Main = () => {
                 </div>
             </div>
             <div className="md:flex gap-7">
-                <Carts></Carts>
-                <Preparing></Preparing>
+                <Carts handleOrder={handleOrder}></Carts>
+                <ToastContainer />
+                <Preparing carts={carts}></Preparing>
             </div>
         </main>
     );
