@@ -24,6 +24,10 @@ const Main = () => {
 
     }
 
+    const handleDelete = (id) => {
+        const newCart = carts.filter(item => item.recipe_id !== id);
+        setCarts(newCart);
+    }
 
     return (
         <main className="md:w-5/6 mx-auto px-3">
@@ -36,7 +40,7 @@ const Main = () => {
             <div className="md:flex gap-7">
                 <Carts handleOrder={handleOrder}></Carts>
                 <ToastContainer />
-                <Preparing carts={carts}></Preparing>
+                <Preparing carts={carts} handleDelete={handleDelete}></Preparing>
             </div>
         </main>
     );
